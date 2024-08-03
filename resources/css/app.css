@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+    scroll-behavior: smooth;
+    color: #212832;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: none !important;
+}
+
+b {
+    font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Barlow Condensed;
+}
+
+a,
+button,
+div,
+input,
+label,
+option,
+p,
+select,
+span,
+textarea {
+    font-family: Jost;
+}
+
+select {
+    background-position: right;
+}
+
+#desc_1 ol,
+#desc_2 ol,
+.richText-editor ol {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+#desc_1 ul,
+#desc_2 ul,
+.richText-editor ul {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+/* User-------------------------- */
+/* Card Materi */
+#sosmed {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+#bagikan:hover > #sosmed {
+    left: 60px;
+    opacity: 100%;
+}
+
+#bagikan:hover + #topik {
+    opacity: 0;
+}
+
+/* Header */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-absoulte {
+    position: absolute;
+    left: 0;
+    top: 30px;
+}
+
+.header-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: white;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+
+    animation: fadeDown 0.5s ease-in-out;
+}
+
+.absoulte-container {
+    padding: 15px;
+    border: 1px solid rgba(48, 146, 85, 0.2);
+    border-radius: 10px;
+}
+
+.fixed-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+}
+
+#navMobile.active {
+    left: 0;
+}
+
+#navMobile.active + #toggleMobile {
+    display: none;
+}
+
+/* Materi */
+#desc_1,
+#desc_2 {
+    line-height: 1.75rem;
+}
+
+#desc_1 div,
+#desc_2 div {
+    margin-bottom: 8px;
+}
+
+#desc_1 div:last-child,
+#desc_2 div:last-child {
+    margin-bottom: 0;
+}
+
+/* Kuis */
+.quiz-carousel .owl-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quiz-carousel .owl-nav button {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+
+    font-family: jost;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 2.975px;
+    text-transform: uppercase;
+
+    opacity: 1;
+    transition: ease 0.3s;
+}
+
+.custom-prev {
+    background-color: white;
+    border: 1px solid rgb(33, 40, 50);
+    color: rgb(33, 40, 50);
+}
+
+.custom-prev:hover {
+    background-color: rgb(48, 146, 85);
+    border: 1px solid rgb(48, 146, 85);
+    color: white;
+}
+
+.custom-modal,
+.custom-next {
+    background-color: rgb(48, 146, 85);
+    color: white;
+}
+
+.custom-modal:hover,
+.custom-next:hover {
+    background-color: rgb(33, 40, 50);
+    color: white;
+}
+
+/* Kuis */
+.owl-carousel input[type="radio"] + label span {
+    transition: background 0.2s, transform 0.2s;
+}
+
+.owl-carousel input[type="radio"] + label span:hover,
+.owl-carousel input[type="radio"] + label:hover span {
+    transform: scale(1.2);
+}
+
+.owl-carousel input[type="radio"]:checked + label span {
+    background-color: rgb(48 146 85);
+    box-shadow: 0 0 0 2px white inset;
+}
+
+.owl-carousel input[type="radio"]:checked + label {
+    color: rgb(48 146 85);
+}
+
+.owl-carousel input[type="radio"]:checked + label #border {
+    border-color: rgb(48 146 85);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .quiz-carousel .owl-nav button {
+        padding: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .quiz-carousel .owl-nav {
+        margin-top: 2rem !important;
+    }
+
+    .quiz-carousel .owl-nav button {
+        padding: 1rem 2.25rem;
+    }
+}
+
+/* 3D model */
+#gui-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    user-select: none;
+}
+
+.annotation {
+    user-select: none;
+    position: absolute;
+    line-height: 50px;
+    color: white;
+    display: flex;
+    gap: 4px;
+
+    opacity: 0.6;
+}
+
+.annotation span {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(00, 00, 00, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    .annotation div {
+        flex: 1;
+        width: 200px;
+        max-width: 200px;
+        height: fit-content;
+        background-color: rgba(00, 00, 00, 0.8);
+        padding: 16px;
+    }
+    
+    .annotation p {
+        font-size: 0.75rem; 
+        line-height: 1rem; 
+    }
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    .annotation div {
+        flex: 1;
+        width: 300px;
+        max-width: 300px;
+        height: fit-content;
+        background-color: rgba(00, 00, 00, 0.8);
+        padding: 16px;
+    }
+    
+    .annotation p {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+ }
+
+/* Admin-------------------------- */
+/* Aside */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+    .aside-closed #container-aside {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, width 0.3s ease-in-out;
+    }
+}
+
+/* Table */
+#myTable_wrapper {
+    font-family: jost;
+    color: #212832;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid rgba(48, 146, 85, 0.2);
+}
+
+.dataTables_length select {
+    width: 60px;
+}
+
+td {
+    text-transform: capitalize;
+}
+
+table.dataTable > thead > tr > td,
+table.dataTable > thead > tr > th {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(48, 146, 85, 0.2);
+}
+
+table.dataTable tbody td,
+table.dataTable tbody th {
+    padding: 16px 0;
+    box-shadow: none !important;
+    border-top: 1px solid rgba(48, 146, 85, 0.2);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 10px;
+    transition: ease-in-out 0.3s;
+    border: none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: rgb(48, 146, 85) !important;
+    color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: rgb(48, 146, 85);
+    color: white !important;
+}
+
+/* Modal */
+#modal,
+#modal-error {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#modal-error.active,
+#modal-error.timeout,
+#modal.active,
+#modal.timeout {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Body */
+.body.active,
+.body.timeout {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Kuis Tabs */
+/* flex flex-col gap-6 */
+#formKuis.active,
+#formPertanyaan.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#formKuis.inactive,
+#formPertanyaan.inactive {
+    display: none;
+}
+
+.btnKuis.active #border,
+.btnPertanyaan.active #border {
+    border: 2px solid rgb(48 146 85);
+}
+
+.btnKuis.active #text,
+.btnPertanyaan.active #text {
+    color: rgb(48 146 85);
+}
+
+.richText .richText-toolbar:last-child {
+    display: none;
+}
+
+
+/* Edit Materi */
+.admin .webgl{
+    width: 100% !important;
+}

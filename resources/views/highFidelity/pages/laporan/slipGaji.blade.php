@@ -39,7 +39,7 @@
                         <div class="flex items-center gap-2
                             phone:justify-end">
                             <a
-                                href="{{ route('gaji.read', ['id'=>$gaji->id]) }}"
+                                href="{{ route('slipGaji.download') }}"
                                 class="bg-blueBi px-4 py-2 rounded-[10px] ease-in-out duration-300 hover:bg-[#4665D6]">
                                 <span class="text-sm text-white capitalize">download</span>
                             </a>

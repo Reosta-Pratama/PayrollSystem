@@ -68,7 +68,7 @@
                             @enderror
                         </x-admin.content-input>
     
-                        <x-admin.content-input>
+                        {{-- <x-admin.content-input>
                             <x-admin.label for="potongan" name="potongan"></x-admin.label>
                             <x-admin.input
                                 id="potongan"
@@ -81,7 +81,7 @@
                             @error('potongan')
                                 <x-admin.error message="{{ $message }}"></x-admin.error>
                             @enderror
-                        </x-admin.content-input>
+                        </x-admin.content-input> --}}
     
                         <x-admin.content-input>
                             <x-admin.label for="tanggalGaji" name="tanggalGaji"></x-admin.label>

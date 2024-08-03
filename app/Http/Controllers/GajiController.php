@@ -22,7 +22,7 @@ class GajiController extends Controller
         }])->find($id);
 
         if ($pegawai) {
-            return view('lowFidelity.pages.gaji.read', compact('pegawai'));
+            return view('highFidelity.pages.gaji.read', compact('pegawai'));
         } else {
             return redirect()->back()->withErrors(['error' => 'Tidak ditemukan']);
         }

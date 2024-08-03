@@ -42,13 +42,14 @@ class GajiController extends Controller
 
         try {
             $penalty = $this->calculatePenalty($request->pegawaiID, $request->gajiPokok);
+            $fullAbsencePenalty = $this->calculateFullAbsencePenalty($request->pegawaiID);
 
             Gaji::create([
                 'pegawaiID' => $request->pegawaiID,
                 'gajiPokok' => $request->gajiPokok,
                 'tunjangan' => $request->tunjangan,
                 'bonus' => $request->bonus,
-                'potongan' => $penalty,
+                'potongan' => $penalty + $fullAbsencePenalty,
                 'tanggalGaji' => $request->tanggalGaji,
                 'status' => $request->status,
             ]);
@@ -127,6 +128,24 @@ class GajiController extends Controller
         }
 
         return $absencePenalty;
+    }
+
+    private function calculateFullAbsencePenalty($pegawaiID)
+    {
+        $penaltyPerDay = 1000; 
+
+        $daysInMonth = Carbon::now()->daysInMonth;
+        $attendanceRecords = Absensi::where('pegawaiID', $pegawaiID)
+            ->whereMonth('tanggal', Carbon::now()->month)
+            ->get();
+        
+        $totalDaysAbsent = $daysInMonth - $attendanceRecords->count();
+
+        // dd($totalDaysAbsent);
+
+        $fullAbsencePenalty = $totalDaysAbsent * $penaltyPerDay;
+
+        return $fullAbsencePenalty;
     }
 
     public function delete($id){

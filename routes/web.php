@@ -54,6 +54,5 @@ Route::middleware(['auth'])->group(function () {
 
     // Slip Gaji
     Route::get('/report/slipGaji', [ReportController::class, 'slipGaji'])->name('slipGaji');
-
 });
 

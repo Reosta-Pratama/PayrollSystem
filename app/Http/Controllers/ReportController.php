@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gaji;
-use App\Models\Pegawai;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\LaravelPdf\Facades\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportController extends Controller
 {
@@ -18,11 +15,11 @@ class ReportController extends Controller
 
     public function formSlipGaji(){
         $gaji = Gaji::with('pegawai')->latest()->get();
-        return view('highFidelity.pages.laporan.slipGaji', compact('gaji'));
+        return view('highFidelity.pages.laporan.formSlipGaji', compact('gaji'));
     }
 
     public function downloadSlipGaji(){
-        $gaji = Gaji::with('pegawai')->latest()->get();
-        Pdf::view('highFidelity.pages.laporan.slipGaji', ['gaji' => $gaji])->save('/assets/directory/invoice.pdf');
+        $pdf = Pdf::loadView('pdf');
+        return $pdf->download();
     }
 }

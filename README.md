@@ -8,8 +8,8 @@ Sebelum memulai, pastikan Anda telah menginstal [PHP](https://www.php.net/) dan 
 
    Pertama, clone repositori ini ke sistem Anda:
    ```bash
-   git clone [Link GitHub Program Payroll]
-   cd [Nama Folder Repositori]
+   git clone https://github.com/Reosta-Pratama/PayrollSystem.git
+   cd PayrollSystem
    ```
 
 2. **Instalasi Laravel**
@@ -37,7 +37,7 @@ Sebelum memulai, pastikan Anda telah menginstal [PHP](https://www.php.net/) dan 
 
    Jalankan migrasi database untuk membuat tabel-tabel yang diperlukan:
    ```bash
-   php artisan migrate
+   php artisan migrate:fresh --seed
    ```
 
 6. **Menjalankan Aplikasi**

@@ -46,7 +46,7 @@ class JadwalKerjaController extends Controller
     {
         $jadwalKerja = JadwalKerja::find($id);
         if ($jadwalKerja) {
-            return view('lowFidelity.pages.jadwalKerja.update', compact('jadwalKerja'));
+            return view('highFidelity.pages.jadwalKerja.update', compact('jadwalKerja'));
         } else {
             return redirect()->back()->withErrors(['error' => 'Tidak ditemukan']);
         }

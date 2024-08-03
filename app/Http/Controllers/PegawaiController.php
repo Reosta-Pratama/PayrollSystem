@@ -111,17 +111,23 @@ class PegawaiController extends Controller
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         try {
             $pegawai = Pegawai::findOrFail($id);
+            $user = $pegawai->user;
             $pegawai->delete();
-
+            if ($user) {
+                $user->delete();
+            }
+    
             return redirect()->route('pegawai.list')->with('success', 'Berhasil dihapus');
-
+    
         } catch (QueryException $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    
 }

@@ -172,7 +172,7 @@
                 href="{{ route('pegawai.list') }}" 
                 type="submit" 
                 name="simpan"
-                hapus="{{ route('pegawai.delete', ['id'=>$pegawai]) }}">
+                hapus="{{ route('pegawai.delete', ['id'=>$pegawai->id]) }}">
             </x-admin.btn-edit>
         </x-admin.form-default>
     </x-admin.card-input>

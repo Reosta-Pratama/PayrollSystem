@@ -12,7 +12,7 @@ class GajiController extends Controller
     //
     public function list(){
         $pegawai = Pegawai::latest()->get();
-        return view('lowFidelity.pages.gaji.list', compact('pegawai'));
+        return view('highFidelity.pages.gaji.list', compact('pegawai'));
     }
 
     public function read($id)

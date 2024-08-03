@@ -4,7 +4,7 @@
         {{-- Seo --}}
         <meta name="description" content="deskripsi beranda)">
         <meta name="keywords" content="beranda biolobi">
-        <title>Kelola Jadwal Kerja - {{ env("APP_NAME") }}</title>
+        <title>Kelola gaji - {{ env("APP_NAME") }}</title>
 
         {{-- Plugin --}}
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -12,35 +12,38 @@
     @endpush
 
     {{-- Isi halaman disini --}}
-    <x-admin.title name="kelola Jadwal Kerja"></x-admin.title>
-
-    <x-admin.add-button 
-        href="{{ route('jadwalKerja.insert') }}"
-        name="tambah jadwal kerja">
-    </x-admin.add-button>
+    <x-admin.title name="kelola gaji"></x-admin.title>
 
     <div class="phone:p-2 lg-phone:p-6 rounded-[10px]
         border border-solid border-greenBi/20">
         <table id="myTable" class="display nowrap">
             <thead>
                 <tr>
-                    <th data-priority="1">Hari</th>
-                    <th>Jam Masuk</th>
-                    <th>Jam Keluar</th>
+                    <th data-priority="1">Nama</th>
+                    <th>Jabatan</th>
+                    <th>Tanggal masuk</th>
+                    <th>Status</th>
                     <th>Opsi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($jadwalKerja as $jadwalKerja)
+                @foreach ($pegawai as $pegawai)
                 <tr>
-                    <td class="length">{{ $jadwalKerja->hari }}</td>
-                    <td>{{ $jadwalKerja->jamMasuk }}</td>
-                    <td>{{ $jadwalKerja->jamKeluar }}</td>
+                    <td class="length">{{ $pegawai->nama }}</td>
+                    <td>{{ $pegawai->jabatan }}</td>
+                    <td>{{ $pegawai->tanggalMasuk }}</td>
+                    <td>{{ $pegawai->status }}</td>
       
-                    <x-admin.update-delete 
-                        edit="{{ route('jadwalKerja.read', ['id'=>$jadwalKerja->id]) }}"
-                        delete="{{ route('jadwalKerja.delete', ['id'=>$jadwalKerja->id]) }}">
-                    </x-admin.update-delete>
+                    <td>
+                        <div class="flex items-center gap-2
+                            phone:justify-end">
+                            <a
+                                href="{{ route('gaji.read', ['id'=>$pegawai->id]) }}"
+                                class="bg-blueBi px-4 py-2 rounded-[10px] ease-in-out duration-300 hover:bg-[#4665D6]">
+                                <span class="text-sm text-white capitalize">gaji</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

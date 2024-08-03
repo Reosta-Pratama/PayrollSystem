@@ -5,6 +5,7 @@ use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JadwalKerjaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -50,5 +51,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/absensi', [AbsensiController::class, 'view'])->name('absensi.list');
     Route::post('/absensi/clockin', [AbsensiController::class, 'clockin'])->name('absensi.clockin');
     Route::post('/absensi/clockout', [AbsensiController::class, 'clockout'])->name('absensi.clockout');
+
+    // Slip Gaji
+    Route::get('/report/slipGaji', [ReportController::class, 'slipGaji'])->name('slipGaji');
+
 });
 

@@ -45,10 +45,9 @@ return [
         'daftar' => [
             [
                 'nama' => "slip gaji",
-                'alamat' => '/',
+                'alamat' => '/report/slipGaji',
                 'icon' => '<i class="fa-solid fa-book"></i>'
             ]
         ]
     ],
 ];
-?>

@@ -64,7 +64,7 @@ class GajiController extends Controller
 
     private function calculatePenalty($pegawaiID, $gajiPokok)
     {
-        $latePenalty = $this->calculateLatePenalty($pegawaiID, $gajiPokok);
+        $latePenalty = $this->calculateLatePenalty($pegawaiID);
         $absencePenalty = $this->calculateAbsencePenalty($pegawaiID, $gajiPokok);
 
         // dd($latePenalty);
@@ -72,7 +72,7 @@ class GajiController extends Controller
         return $latePenalty + $absencePenalty;
     }
 
-    private function calculateLatePenalty($pegawaiID, $gajiPokok)
+    private function calculateLatePenalty($pegawaiID)
     {
         $penaltyPerMinute = 1000; 
         $latePenalty = 0;
